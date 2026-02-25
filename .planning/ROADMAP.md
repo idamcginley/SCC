@@ -12,7 +12,7 @@ Build a React SPA where MBA students translate a PwC case study into framework-a
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation and Application Shell** - React/Vite/TypeScript project with dashboard, routing, theme, and shared UI primitives
+- [x] **Phase 1: Foundation and Application Shell** - React/Vite/TypeScript project with dashboard, routing, theme, and shared UI primitives
 - [ ] **Phase 2: GRI Module End-to-End** - Complete GRI module proving all patterns: schema-accurate form, Zod validation, live preview, and PDF export
 - [ ] **Phase 3: Remaining Four Modules** - ISSB, CSRD, ESRS, and SBTi modules replicating proven patterns with framework-specific schemas
 - [ ] **Phase 4: Cross-Framework Content and Comparison** - Framework differentiator quick-reference and cross-framework comparison view
@@ -31,8 +31,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Project scaffold (Vite + React + TypeScript + Tailwind v4 + shadcn/ui) and forest/earth theme foundation
-- [ ] 01-02-PLAN.md -- Dashboard UI with 5 framework cards, routing, persistent nav, module pages with two-panel skeleton
+- [x] 01-01-PLAN.md -- Project scaffold (Vite + React + TypeScript + Tailwind v4 + shadcn/ui) and forest/earth theme foundation
+- [x] 01-02-PLAN.md -- Dashboard UI with 5 framework cards, routing, persistent nav, module pages with two-panel skeleton
 
 ### Phase 2: GRI Module End-to-End
 **Goal**: Students can complete the GRI assessment -- filling in a framework-accurate form, seeing their report take shape in real-time, and downloading a professional PDF
@@ -89,7 +89,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Application Shell | 1/2 | In Progress | - |
+| 1. Foundation and Application Shell | 2/2 | Complete | 2026-02-24 |
 | 2. GRI Module End-to-End | 0/3 | Not started | - |
 | 3. Remaining Four Modules | 0/4 | Not started | - |
 | 4. Cross-Framework Content and Comparison | 0/2 | Not started | - |
