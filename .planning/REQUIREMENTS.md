@@ -15,13 +15,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Assessment Forms
 
-- [ ] **FORM-01**: GRI module with structured form mirroring GRI Standards disclosure requirements
+- [x] **FORM-01**: GRI module with structured form mirroring GRI Standards disclosure requirements
 - [ ] **FORM-02**: ISSB module with structured form mirroring IFRS S1/S2 disclosure requirements
 - [ ] **FORM-03**: CSRD module with structured form mirroring CSRD reporting requirements
 - [ ] **FORM-04**: ESRS module with structured form mirroring ESRS disclosure requirements
 - [ ] **FORM-05**: SBTi module with structured form mirroring SBTi target-setting methodology
 - [x] **FORM-06**: Form validation enforcing required fields and framework-specific rules via Zod schemas
-- [ ] **FORM-07**: Live HTML preview showing framework-formatted report updating in real-time as student types
+- [x] **FORM-07**: Live HTML preview showing framework-formatted report updating in real-time as student types
 
 ### Output
 
@@ -87,13 +87,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 1 | Complete |
 | FOUND-03 | Phase 1 | Complete |
-| FORM-01 | Phase 2 | Pending |
+| FORM-01 | Phase 2 | Complete |
 | FORM-02 | Phase 3 | Pending |
 | FORM-03 | Phase 3 | Pending |
 | FORM-04 | Phase 3 | Pending |
 | FORM-05 | Phase 3 | Pending |
 | FORM-06 | Phase 2 | Complete |
-| FORM-07 | Phase 2 | Pending |
+| FORM-07 | Phase 2 | Complete |
 | OUT-01 | Phase 2 | Pending |
 | OUT-02 | Phase 4 | Pending |
 | CONT-01 | Phase 4 | Pending |
