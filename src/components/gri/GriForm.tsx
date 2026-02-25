@@ -1,14 +1,11 @@
 import { useState, useCallback } from "react";
-import { useForm, useFormContext, FormProvider } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useFormContext } from "react-hook-form";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, AlertTriangle, FileDown } from "lucide-react";
 import {
-  griSchema,
   griSections,
-  getDefaultValues,
   type GriFormData,
 } from "@/schemas/gri";
 import { useLocalStorageForm } from "@/hooks/useLocalStorageForm";
@@ -26,7 +23,7 @@ function getSectionFieldPrefix(section: string): string | null {
   return null;
 }
 
-function FormContent() {
+export function GriFormContent() {
   const [activeSection, setActiveSection] = useState("gri2");
   const [validationStatus, setValidationStatus] = useState<
     "idle" | "valid" | "invalid"
@@ -182,17 +179,3 @@ function Gri1Info() {
   );
 }
 
-export function GriForm() {
-  const methods = useForm<GriFormData>({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    resolver: zodResolver(griSchema) as any,
-    defaultValues: getDefaultValues(),
-    mode: "onSubmit",
-  });
-
-  return (
-    <FormProvider {...methods}>
-      <FormContent />
-    </FormProvider>
-  );
-}
