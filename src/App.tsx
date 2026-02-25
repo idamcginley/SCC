@@ -1,7 +1,15 @@
+import { Routes, Route } from "react-router";
+import { AppLayout } from "@/components/layout/AppLayout";
+import { DashboardPage } from "@/pages/DashboardPage";
+import { ModulePage } from "@/pages/ModulePage";
+
 export default function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-2xl font-semibold">App</h1>
-    </div>
+    <Routes>
+      <Route element={<AppLayout />}>
+        <Route index element={<DashboardPage />} />
+        <Route path="module/:frameworkSlug" element={<ModulePage />} />
+      </Route>
+    </Routes>
   );
 }
