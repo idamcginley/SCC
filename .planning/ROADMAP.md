@@ -47,7 +47,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md -- GRI schema, dependencies, and shared form infrastructure (Zod schema, DisclosureField, localStorage persistence, completion tracking)
+- [x] 02-01-PLAN.md -- GRI schema, dependencies, and shared form infrastructure (Zod schema, DisclosureField, localStorage persistence, completion tracking)
 - [ ] 02-02-PLAN.md -- GRI form UI, sidebar navigation, section components, resizable split layout, and live report preview
 - [ ] 02-03-PLAN.md -- PDF export with corporate report styling, cover page, Content Index, and download integration
 
@@ -90,6 +90,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Application Shell | 2/2 | Complete | 2026-02-24 |
-| 2. GRI Module End-to-End | 0/3 | Not started | - |
+| 2. GRI Module End-to-End | 1/3 | In Progress | - |
 | 3. Remaining Four Modules | 0/4 | Not started | - |
 | 4. Cross-Framework Content and Comparison | 0/2 | Not started | - |

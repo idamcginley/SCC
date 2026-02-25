@@ -20,7 +20,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **FORM-03**: CSRD module with structured form mirroring CSRD reporting requirements
 - [ ] **FORM-04**: ESRS module with structured form mirroring ESRS disclosure requirements
 - [ ] **FORM-05**: SBTi module with structured form mirroring SBTi target-setting methodology
-- [ ] **FORM-06**: Form validation enforcing required fields and framework-specific rules via Zod schemas
+- [x] **FORM-06**: Form validation enforcing required fields and framework-specific rules via Zod schemas
 - [ ] **FORM-07**: Live HTML preview showing framework-formatted report updating in real-time as student types
 
 ### Output
@@ -34,7 +34,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Framework Accuracy
 
-- [ ] **ACCU-01**: GRI form schema mirrors actual GRI Universal Standards structure (GRI 1, 2, 3 + Topic Standards)
+- [x] **ACCU-01**: GRI form schema mirrors actual GRI Universal Standards structure (GRI 1, 2, 3 + Topic Standards)
 - [ ] **ACCU-02**: ISSB form schema mirrors actual IFRS S1/S2 four-pillar structure (Governance, Strategy, Risk Management, Metrics & Targets)
 - [ ] **ACCU-03**: CSRD form schema mirrors actual CSRD reporting requirements and double materiality approach
 - [ ] **ACCU-04**: ESRS form schema mirrors actual ESRS disclosure requirements (cross-cutting + topical standards)
@@ -92,12 +92,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FORM-03 | Phase 3 | Pending |
 | FORM-04 | Phase 3 | Pending |
 | FORM-05 | Phase 3 | Pending |
-| FORM-06 | Phase 2 | Pending |
+| FORM-06 | Phase 2 | Complete |
 | FORM-07 | Phase 2 | Pending |
 | OUT-01 | Phase 2 | Pending |
 | OUT-02 | Phase 4 | Pending |
 | CONT-01 | Phase 4 | Pending |
-| ACCU-01 | Phase 2 | Pending |
+| ACCU-01 | Phase 2 | Complete |
 | ACCU-02 | Phase 3 | Pending |
 | ACCU-03 | Phase 3 | Pending |
 | ACCU-04 | Phase 3 | Pending |

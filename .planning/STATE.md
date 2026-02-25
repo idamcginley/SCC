@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-24)
 
 **Core value:** Students can accurately translate case study data into properly structured sustainability reports across all 5 frameworks -- with framework-perfect form schemas as the source of truth.
-**Current focus:** Phase 1: Foundation and Application Shell
+**Current focus:** Phase 2: GRI Module End-to-End
 
 ## Current Position
 
-Phase: 1 of 4 (Foundation and Application Shell)
-Plan: 2 of 2 in current phase (phase complete)
-Status: Phase 1 Complete
-Last activity: 2026-02-24 -- Completed 01-02-PLAN.md
+Phase: 2 of 4 (GRI Module End-to-End)
+Plan: 1 of 3 in current phase
+Status: In Progress
+Last activity: 2026-02-24 -- Completed 02-01-PLAN.md
 
-Progress: [##........] 20%
+Progress: [###.......] 27%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 17 min
-- Total execution time: 0.55 hours
+- Total plans completed: 3
+- Average duration: 15 min
+- Total execution time: 0.73 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 33 min | 17 min |
+| 02-gri-module | 1 | 11 min | 11 min |
 
 **Recent Trend:**
-- Last 5 plans: 9 min, 24 min
-- Trend: baseline
+- Last 5 plans: 9 min, 24 min, 11 min
+- Trend: improving
 
 *Updated after each plan completion*
 
@@ -51,6 +52,9 @@ Recent decisions affecting current work:
 - 01-02: TopNav uses bg-card with border-b for subtle consulting-firm header feel
 - 01-02: Full-card click area via Link wrapping entire Card with group-hover lift pattern
 - 01-02: Substantive intro paragraphs per module page covering framework purpose, audience, and structure
+- 02-01: Zod v4 installed (npm resolved 4.3.6) -- schema adapted for v4 API (error param instead of invalid_type_error)
+- 02-01: 122 GRI disclosures enumerated (30 GRI 2 + 3 GRI 3 + 89 Topic Standards)
+- 02-01: useWatch({ name: undefined }) required for react-hook-form v7.71 TypeScript overload resolution
 
 ### Pending Todos
 
@@ -65,5 +69,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 01-02-PLAN.md (Phase 1 complete)
-Resume file: .planning/phases/01-foundation-and-application-shell/01-02-SUMMARY.md
+Stopped at: Completed 02-01-PLAN.md
+Resume file: .planning/phases/02-gri-module-end-to-end/02-01-SUMMARY.md
