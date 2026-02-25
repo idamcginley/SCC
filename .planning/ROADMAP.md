@@ -28,11 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Dashboard displays 5 framework cards (GRI, ISSB, CSRD, ESRS, SBTi) and clicking any card navigates to that module's page
   3. The visual theme is corporate-polished -- professional typography, clean layout, muted sustainability color palette -- not a default template look
   4. Shared UI primitives (Button, Card, Tabs, form field components) are available and styled consistently
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- Project scaffold (Vite + React + TypeScript + Tailwind v4 + shadcn/ui) and forest/earth theme foundation
+- [ ] 01-02-PLAN.md -- Dashboard UI with 5 framework cards, routing, persistent nav, module pages with two-panel skeleton
 
 ### Phase 2: GRI Module End-to-End
 **Goal**: Students can complete the GRI assessment -- filling in a framework-accurate form, seeing their report take shape in real-time, and downloading a professional PDF
