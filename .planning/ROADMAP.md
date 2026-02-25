@@ -13,7 +13,7 @@ Build a React SPA where MBA students translate a PwC case study into framework-a
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation and Application Shell** - React/Vite/TypeScript project with dashboard, routing, theme, and shared UI primitives
-- [ ] **Phase 2: GRI Module End-to-End** - Complete GRI module proving all patterns: schema-accurate form, Zod validation, live preview, and PDF export
+- [x] **Phase 2: GRI Module End-to-End** - Complete GRI module proving all patterns: schema-accurate form, Zod validation, live preview, and PDF export
 - [ ] **Phase 3: Remaining Four Modules** - ISSB, CSRD, ESRS, and SBTi modules replicating proven patterns with framework-specific schemas
 - [ ] **Phase 4: Cross-Framework Content and Comparison** - Framework differentiator quick-reference and cross-framework comparison view
 
@@ -48,8 +48,8 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md -- GRI schema, dependencies, and shared form infrastructure (Zod schema, DisclosureField, localStorage persistence, completion tracking)
-- [ ] 02-02-PLAN.md -- GRI form UI, sidebar navigation, section components, resizable split layout, and live report preview
-- [ ] 02-03-PLAN.md -- PDF export with corporate report styling, cover page, Content Index, and download integration
+- [x] 02-02-PLAN.md -- GRI form UI, sidebar navigation, section components, resizable split layout, and live report preview
+- [x] 02-03-PLAN.md -- PDF export with corporate report styling, cover page, Content Index, and download integration
 
 ### Phase 3: Remaining Four Modules
 **Goal**: Students can complete assessments for ISSB, CSRD, ESRS, and SBTi with the same quality and accuracy as the GRI module
@@ -90,6 +90,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Application Shell | 2/2 | Complete | 2026-02-24 |
-| 2. GRI Module End-to-End | 1/3 | In Progress | - |
+| 2. GRI Module End-to-End | 3/3 | Complete | 2026-02-24 |
 | 3. Remaining Four Modules | 0/4 | Not started | - |
 | 4. Cross-Framework Content and Comparison | 0/2 | Not started | - |

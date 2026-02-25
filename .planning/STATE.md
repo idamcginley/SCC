@@ -9,29 +9,29 @@ See: .planning/PROJECT.md (updated 2026-02-24)
 
 ## Current Position
 
-Phase: 2 of 4 (GRI Module End-to-End)
-Plan: 2 of 3 in current phase
-Status: In Progress
-Last activity: 2026-02-24 -- Completed 02-02-PLAN.md
+Phase: 2 of 4 (GRI Module End-to-End) -- COMPLETE
+Plan: 3 of 3 in current phase
+Status: Phase Complete
+Last activity: 2026-02-24 -- Completed 02-03-PLAN.md
 
-Progress: [####......] 36%
+Progress: [######....] 55%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 14 min
-- Total execution time: 0.90 hours
+- Total plans completed: 5
+- Average duration: 13 min
+- Total execution time: 0.98 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 33 min | 17 min |
-| 02-gri-module | 2 | 21 min | 11 min |
+| 02-gri-module | 3 | 26 min | 9 min |
 
 **Recent Trend:**
-- Last 5 plans: 9 min, 24 min, 11 min, 10 min
+- Last 5 plans: 24 min, 11 min, 10 min, 5 min
 - Trend: improving
 
 *Updated after each plan completion*
@@ -59,6 +59,10 @@ Recent decisions affecting current work:
 - 02-02: react-resizable-panels v4 uses orientation prop (mapped from shadcn direction)
 - 02-02: zodResolver cast to any for Zod v4 .default() input/output type mismatch
 - 02-02: SVG circular completion indicators in sidebar (professional consulting aesthetic)
+- 02-03: Static TTF fonts for @react-pdf (variable WOFF2 not supported) -- Inter Regular/SemiBold/Bold from Google Fonts
+- 02-03: Separate PDF Document component from HTML preview -- no shared rendering code per research anti-pattern
+- 02-03: PDFDownloadLink with getValues() snapshot -- captures form data at click time, not continuous subscription
+- 02-03: PDF export allowed even with validation errors -- warning banner lists incomplete sections
 
 ### Pending Todos
 
@@ -73,5 +77,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 02-02-PLAN.md
-Resume file: .planning/phases/02-gri-module-end-to-end/02-02-SUMMARY.md
+Stopped at: Completed 02-03-PLAN.md (Phase 2 complete)
+Resume file: .planning/phases/02-gri-module-end-to-end/02-03-SUMMARY.md

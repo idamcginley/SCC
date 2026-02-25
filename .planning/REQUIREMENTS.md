@@ -25,7 +25,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Output
 
-- [ ] **OUT-01**: PDF export per module generating a professionally formatted, framework-accurate downloadable report
+- [x] **OUT-01**: PDF export per module generating a professionally formatted, framework-accurate downloadable report
 - [ ] **OUT-02**: Cross-framework comparison view showing how the same case study data maps across different frameworks
 
 ### Content
@@ -94,7 +94,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FORM-05 | Phase 3 | Pending |
 | FORM-06 | Phase 2 | Complete |
 | FORM-07 | Phase 2 | Complete |
-| OUT-01 | Phase 2 | Pending |
+| OUT-01 | Phase 2 | Complete |
 | OUT-02 | Phase 4 | Pending |
 | CONT-01 | Phase 4 | Pending |
 | ACCU-01 | Phase 2 | Complete |
