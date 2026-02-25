@@ -1,6 +1,9 @@
-import { useParams, Navigate } from "react-router";
+import { useParams, Navigate, useOutletContext } from "react-router";
+import { useEffect } from "react";
 import { frameworks } from "@/data/frameworks";
 import { Separator } from "@/components/ui/separator";
+import { GriAssessment } from "@/components/gri/GriAssessment";
+import type { AppLayoutContext } from "@/components/layout/AppLayout";
 
 const frameworkOverviews: Record<string, string> = {
   gri: "The GRI Standards are the most widely used sustainability reporting framework globally, designed for a broad range of stakeholders including investors, civil society, and regulators. Built on a modular structure of Universal Standards (GRI 1, 2, 3) and Topic Standards covering environmental, social, and governance disclosures, GRI emphasizes impact materiality -- what matters to stakeholders and society. Organizations of any size or sector can apply GRI to produce comprehensive sustainability reports that demonstrate transparency and accountability.",
@@ -17,9 +20,24 @@ const frameworkOverviews: Record<string, string> = {
 export function ModulePage() {
   const { frameworkSlug } = useParams();
   const framework = frameworks.find((f) => f.slug === frameworkSlug);
+  const { setFullBleed } = useOutletContext<AppLayoutContext>();
+
+  // GRI assessment needs full-bleed layout (no padding, no max-width)
+  const isGri = frameworkSlug === "gri";
+
+  useEffect(() => {
+    setFullBleed(isGri);
+    return () => setFullBleed(false);
+  }, [isGri, setFullBleed]);
 
   if (!framework) return <Navigate to="/" replace />;
 
+  // GRI: render full assessment layout
+  if (isGri) {
+    return <GriAssessment />;
+  }
+
+  // All other frameworks: intro + placeholder skeleton
   const Icon = framework.icon;
   const overview = frameworkOverviews[framework.slug];
 

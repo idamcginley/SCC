@@ -133,7 +133,8 @@ function Gri1Info() {
 
 export function GriForm() {
   const methods = useForm<GriFormData>({
-    resolver: zodResolver(griSchema),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolver: zodResolver(griSchema) as any,
     defaultValues: getDefaultValues(),
     mode: "onSubmit",
   });
