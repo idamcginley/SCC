@@ -9,9 +9,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FOUND-01**: React + Vite + TypeScript project with Tailwind CSS and shadcn/ui component library
+- [x] **FOUND-01**: React + Vite + TypeScript project with Tailwind CSS and shadcn/ui component library
 - [ ] **FOUND-02**: Module dashboard landing page with 5 framework cards (GRI, ISSB, CSRD, ESRS, SBTi) showing module status
-- [ ] **FOUND-03**: Corporate polished visual theme — professional typography, clean layout, muted sustainability palette
+- [x] **FOUND-03**: Corporate polished visual theme — professional typography, clean layout, muted sustainability palette
 
 ### Assessment Forms
 
@@ -84,9 +84,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Complete |
 | FORM-01 | Phase 2 | Pending |
 | FORM-02 | Phase 3 | Pending |
 | FORM-03 | Phase 3 | Pending |
