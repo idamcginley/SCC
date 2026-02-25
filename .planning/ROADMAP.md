@@ -44,12 +44,12 @@ Plans:
   3. Live preview panel updates in real-time as the student types, rendering a framework-formatted report layout
   4. Student can download a professionally formatted PDF report that mirrors real GRI report conventions including a Content Index
   5. Form data persists to localStorage so students can close the browser and resume where they left off
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md -- GRI schema, dependencies, and shared form infrastructure (Zod schema, DisclosureField, localStorage persistence, completion tracking)
+- [ ] 02-02-PLAN.md -- GRI form UI, sidebar navigation, section components, resizable split layout, and live report preview
+- [ ] 02-03-PLAN.md -- PDF export with corporate report styling, cover page, Content Index, and download integration
 
 ### Phase 3: Remaining Four Modules
 **Goal**: Students can complete assessments for ISSB, CSRD, ESRS, and SBTi with the same quality and accuracy as the GRI module
