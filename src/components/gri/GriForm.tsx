@@ -1,15 +1,22 @@
 import { useState, useCallback } from "react";
 import { useForm, useFormContext, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, AlertTriangle, FileDown } from "lucide-react";
-import { griSchema, getDefaultValues, type GriFormData } from "@/schemas/gri";
+import {
+  griSchema,
+  griSections,
+  getDefaultValues,
+  type GriFormData,
+} from "@/schemas/gri";
 import { useLocalStorageForm } from "@/hooks/useLocalStorageForm";
 import { GriSidebar } from "@/components/gri/GriSidebar";
 import { GriUniversalSection } from "@/components/gri/GriUniversalSection";
 import { GriMaterialTopics } from "@/components/gri/GriMaterialTopics";
 import { GriTopicSection } from "@/components/gri/GriTopicSection";
+import { GriPdfDocument } from "@/components/gri/GriPdfDocument";
 
 // Field name prefixes per section for targeted validation on navigate
 function getSectionFieldPrefix(section: string): string | null {
@@ -25,7 +32,8 @@ function FormContent() {
     "idle" | "valid" | "invalid"
   >("idle");
 
-  const { trigger } = useFormContext<GriFormData>();
+  const [pdfErrors, setPdfErrors] = useState<string[]>([]);
+  const { trigger, getValues, formState } = useFormContext<GriFormData>();
 
   // Wire localStorage persistence inside FormProvider
   useLocalStorageForm("gri-form-data");
@@ -46,6 +54,33 @@ function FormContent() {
   async function handleValidateAll() {
     const result = await trigger();
     setValidationStatus(result ? "valid" : "invalid");
+  }
+
+  /** Collect validation error section names for the PDF warning banner */
+  async function collectValidationErrors(): Promise<string[]> {
+    const valid = await trigger();
+    if (valid) return [];
+
+    const errors = formState.errors;
+    const errorSections: string[] = [];
+
+    if (errors.gri2) errorSections.push("GRI 2: General Disclosures");
+    if (errors.gri3) errorSections.push("GRI 3: Material Topics");
+    if (errors.topics && typeof errors.topics === "object") {
+      for (const topicCode of Object.keys(errors.topics)) {
+        const meta = griSections.find((s) => s.id === topicCode);
+        errorSections.push(meta?.name ?? `GRI ${topicCode}`);
+      }
+    }
+
+    return errorSections;
+  }
+
+  /** Prepare PDF download -- collects errors then renders the link */
+  async function handlePreparePdf() {
+    const errors = await collectValidationErrors();
+    setPdfErrors(errors);
+    // State update triggers re-render with updated PDFDownloadLink
   }
 
   return (
@@ -75,11 +110,27 @@ function FormContent() {
 
           <div className="flex-1" />
 
-          {/* PDF export placeholder (Plan 03) */}
-          <Button variant="outline" size="sm" disabled>
-            <FileDown className="mr-1.5 h-3.5 w-3.5" />
-            Export PDF
-          </Button>
+          {/* PDF export -- PDFDownloadLink generates in-browser */}
+          <PDFDownloadLink
+            document={
+              <GriPdfDocument
+                data={getValues()}
+                materialTopics={getValues("materialTopics") ?? []}
+                validationErrors={pdfErrors.length > 0 ? pdfErrors : undefined}
+              />
+            }
+            fileName="gri-sustainability-report.pdf"
+            onClick={() => void handlePreparePdf()}
+          >
+            {({ loading }) => (
+              <Button variant="outline" size="sm" asChild>
+                <span>
+                  <FileDown className="mr-1.5 h-3.5 w-3.5" />
+                  {loading ? "Generating PDF..." : "Download PDF Report"}
+                </span>
+              </Button>
+            )}
+          </PDFDownloadLink>
         </div>
 
         {/* Section content - scrollable */}
