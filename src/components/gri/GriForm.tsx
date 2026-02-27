@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react";
 import { useFormContext } from "react-hook-form";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, AlertTriangle, FileDown } from "lucide-react";
 import {
@@ -86,9 +85,9 @@ export function GriFormContent() {
 
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Toolbar */}
-        <div className="flex items-center gap-2 border-b border-border bg-card px-4 py-2">
+        <div className="flex shrink-0 items-center gap-2 border-b border-border bg-secondary/50 px-4 py-1.5">
           <Button variant="secondary" size="sm" onClick={handleValidateAll}>
-            <CheckCircle2 className="mr-1.5 h-3.5 w-3.5" />
+            <CheckCircle2 className="mr-1.5 h-3 w-3" />
             Validate All
           </Button>
 
@@ -131,7 +130,7 @@ export function GriFormContent() {
         </div>
 
         {/* Section content - scrollable */}
-        <ScrollArea className="flex-1">
+        <div className="flex-1 overflow-y-auto">
           <div className="p-6">
             {activeSection === "gri1" && <Gri1Info />}
             {activeSection === "gri2" && <GriUniversalSection />}
@@ -140,7 +139,7 @@ export function GriFormContent() {
               <GriTopicSection topicCode={activeSection} />
             )}
           </div>
-        </ScrollArea>
+        </div>
       </div>
     </div>
   );
@@ -150,10 +149,10 @@ export function GriFormContent() {
 function Gri1Info() {
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-semibold tracking-tight">
+      <h2 className="text-base font-bold tracking-tight">
         GRI 1: Foundation 2021
       </h2>
-      <div className="rounded-lg border border-border bg-card p-6 text-sm leading-relaxed text-foreground/80">
+      <div className="rounded border border-primary/15 bg-primary/3 p-5 text-sm leading-relaxed text-foreground/80">
         <p>
           GRI 1 establishes the reporting principles and requirements that
           organizations must comply with to report in accordance with the GRI

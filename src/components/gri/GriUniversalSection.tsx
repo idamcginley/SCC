@@ -46,8 +46,8 @@ export function GriUniversalSection() {
 
         return (
           <div key={sub.name}>
-            <div className="mb-4 border-b border-border pb-2">
-              <h3 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+            <div className="mb-3 border-b-2 border-primary/15 pb-1.5">
+              <h3 className="text-xs font-bold uppercase tracking-wide text-primary/70">
                 {sub.name}
               </h3>
             </div>

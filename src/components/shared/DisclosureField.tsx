@@ -55,7 +55,7 @@ export function DisclosureField({
             <Textarea
               {...field}
               value={field.value ?? ""}
-              rows={4}
+              rows={3}
               placeholder={`Enter ${label.toLowerCase()}...`}
               aria-invalid={fieldState.invalid || undefined}
             />

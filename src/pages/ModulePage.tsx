@@ -44,32 +44,38 @@ export function ModulePage() {
   return (
     <div>
       {/* Framework intro section */}
-      <div className="mb-8">
-        <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-            <Icon className="h-6 w-6" />
+      <div className="mb-6">
+        <div className="mb-3 flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded bg-primary/8 text-primary">
+            <Icon className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">
+            <h1 className="text-xl font-bold tracking-tight">
               {framework.name}
             </h1>
-            <p className="text-muted-foreground">{framework.description}</p>
+            <p className="text-sm text-muted-foreground">{framework.description}</p>
           </div>
         </div>
         {overview && (
-          <p className="mt-4 leading-relaxed text-foreground/80">{overview}</p>
+          <p className="mt-3 text-sm leading-relaxed text-foreground/75">{overview}</p>
         )}
       </div>
 
-      <Separator className="mb-8" />
+      <Separator className="mb-6" />
 
       {/* Two-panel skeleton */}
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <div className="rounded-lg border border-dashed border-border p-8 text-center text-muted-foreground">
-          Assessment form coming in a future phase
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="rounded border border-dashed border-border p-8 text-center">
+          <span className="inline-flex items-center rounded-sm bg-gold-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold-800">
+            Coming Soon
+          </span>
+          <p className="mt-2 text-sm text-muted-foreground">Assessment form will be available in a future phase</p>
         </div>
-        <div className="rounded-lg border border-dashed border-border p-8 text-center text-muted-foreground">
-          Report preview coming in a future phase
+        <div className="rounded border border-dashed border-border p-8 text-center">
+          <span className="inline-flex items-center rounded-sm bg-gold-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold-800">
+            Coming Soon
+          </span>
+          <p className="mt-2 text-sm text-muted-foreground">Report preview will be available in a future phase</p>
         </div>
       </div>
     </div>

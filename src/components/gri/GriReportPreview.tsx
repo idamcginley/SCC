@@ -91,7 +91,7 @@ export function GriReportPreview() {
   const materialTopics: string[] = values.materialTopics ?? [];
   const orgName =
     (values.gri2 as Record<string, unknown> | undefined)?.[
-      codeToFieldKey("2-1")
+    codeToFieldKey("2-1")
     ];
   const hasOrgName =
     orgName !== undefined && orgName !== null && orgName !== "";
@@ -110,27 +110,27 @@ export function GriReportPreview() {
   }
 
   return (
-    <div className="bg-white px-8 py-6">
+    <div className="bg-white px-6 py-5">
       {/* Report Title */}
-      <div className="mb-8 border-b-2 border-primary/20 pb-4">
-        <h1 className="text-xl font-bold tracking-tight text-foreground">
+      <div className="mb-6 border-b-2 border-gold-400/40 pb-3">
+        <h1 className="text-lg font-bold tracking-tight text-primary">
           GRI Sustainability Report
         </h1>
         {hasOrgName ? (
-          <p className="mt-1 text-sm text-foreground/70">
+          <p className="mt-0.5 text-sm text-foreground/70">
             {String(orgName)}
           </p>
         ) : (
-          <p className="mt-1 text-sm italic text-muted-foreground/40">
+          <p className="mt-0.5 text-xs italic text-muted-foreground/40">
             [Organization name will appear here]
           </p>
         )}
       </div>
 
       {/* Section: GRI 2 - General Disclosures */}
-      <section className="mb-8">
-        <h2 className="mb-4 border-b border-border pb-1.5 text-lg font-semibold text-foreground">
-          GRI 2 - General Disclosures
+      <section className="mb-6">
+        <h2 className="mb-3 border-b-2 border-primary/10 pb-1 text-sm font-bold uppercase tracking-wide text-primary">
+          GRI 2 — General Disclosures
         </h2>
 
         {gri2Subsections.map((sub) => {
@@ -138,8 +138,8 @@ export function GriReportPreview() {
             sub.range.includes(d.code)
           );
           return (
-            <div key={sub.name} className="mb-5">
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground/70">
+            <div key={sub.name} className="mb-4">
+              <h3 className="mb-1.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60">
                 {sub.name}
               </h3>
               {disclosures.map((d) => {
@@ -169,9 +169,9 @@ export function GriReportPreview() {
       </section>
 
       {/* Section: GRI 3 - Material Topics */}
-      <section className="mb-8">
-        <h2 className="mb-4 border-b border-border pb-1.5 text-lg font-semibold text-foreground">
-          GRI 3 - Material Topics
+      <section className="mb-6">
+        <h2 className="mb-3 border-b-2 border-primary/10 pb-1 text-sm font-bold uppercase tracking-wide text-primary">
+          GRI 3 — Material Topics
         </h2>
         {gri3Disclosures.map((d) => {
           const fieldPath = `gri3.${codeToFieldKey(d.code)}`;
@@ -198,8 +198,8 @@ export function GriReportPreview() {
 
       {/* Section: Topic Standards */}
       {materialTopics.length > 0 && (
-        <section className="mb-8">
-          <h2 className="mb-4 border-b border-border pb-1.5 text-lg font-semibold text-foreground">
+        <section className="mb-6">
+          <h2 className="mb-3 border-b-2 border-primary/10 pb-1 text-sm font-bold uppercase tracking-wide text-primary">
             Topic Standards
           </h2>
           {topicStandardGroups.map((group) => {
@@ -209,8 +209,8 @@ export function GriReportPreview() {
             if (activeInGroup.length === 0) return null;
 
             return (
-              <div key={group.name} className="mb-6">
-                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground/70">
+              <div key={group.name} className="mb-5">
+                <h3 className="mb-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60">
                   {group.name}
                 </h3>
                 {activeInGroup.map((topicCode) => {
@@ -219,8 +219,8 @@ export function GriReportPreview() {
                     (d) => d.section === topicCode
                   );
                   return (
-                    <div key={topicCode} className="mb-5">
-                      <h4 className="mb-2 text-sm font-semibold text-foreground/90">
+                    <div key={topicCode} className="mb-4">
+                      <h4 className="mb-1.5 text-xs font-bold text-foreground/85">
                         {meta?.name ?? `GRI ${topicCode}`}
                       </h4>
                       {topicDisclosures.map((d) => {
@@ -255,20 +255,20 @@ export function GriReportPreview() {
 
       {/* Section: GRI Content Index */}
       <section>
-        <h2 className="mb-4 border-b border-border pb-1.5 text-lg font-semibold text-foreground">
+        <h2 className="mb-3 border-b-2 border-primary/10 pb-1 text-sm font-bold uppercase tracking-wide text-primary">
           GRI Content Index
         </h2>
         <div className="overflow-hidden rounded border border-border">
-          <table className="w-full text-xs">
+          <table className="w-full text-[11px]">
             <thead>
-              <tr className="border-b border-border bg-muted/50">
-                <th className="px-3 py-2 text-left font-medium text-muted-foreground">
+              <tr className="border-b border-border bg-primary/5">
+                <th className="px-2.5 py-1.5 text-left font-semibold text-primary/70">
                   Disclosure
                 </th>
-                <th className="px-3 py-2 text-left font-medium text-muted-foreground">
+                <th className="px-2.5 py-1.5 text-left font-semibold text-primary/70">
                   Title
                 </th>
-                <th className="px-3 py-2 text-right font-medium text-muted-foreground">
+                <th className="px-2.5 py-1.5 text-right font-semibold text-primary/70">
                   Status
                 </th>
               </tr>
@@ -277,21 +277,21 @@ export function GriReportPreview() {
               {contentIndexEntries.map((entry) => (
                 <tr
                   key={entry.code}
-                  className="border-b border-border/50 last:border-0"
+                  className="border-b border-border/30 last:border-0 even:bg-muted/30"
                 >
-                  <td className="whitespace-nowrap px-3 py-1.5 font-mono text-muted-foreground">
+                  <td className="whitespace-nowrap px-2.5 py-1 font-mono text-muted-foreground">
                     GRI {entry.code}
                   </td>
-                  <td className="px-3 py-1.5 text-foreground/80">
+                  <td className="px-2.5 py-1 text-foreground/80">
                     {entry.label}
                   </td>
-                  <td className="whitespace-nowrap px-3 py-1.5 text-right">
+                  <td className="whitespace-nowrap px-2.5 py-1 text-right">
                     {entry.reported ? (
-                      <span className="text-primary font-medium">
+                      <span className="font-semibold text-gold-700">
                         Reported
                       </span>
                     ) : (
-                      <span className="text-muted-foreground/50">
+                      <span className="text-muted-foreground/40">
                         Not reported
                       </span>
                     )}

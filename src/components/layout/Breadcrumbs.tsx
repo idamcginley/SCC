@@ -19,17 +19,17 @@ export function AppBreadcrumbs() {
 
   return (
     <Breadcrumb>
-      <BreadcrumbList>
+      <BreadcrumbList className="text-primary-foreground/60">
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
+          <BreadcrumbLink asChild className="text-primary-foreground/60 hover:text-primary-foreground">
             <Link to="/">Dashboard</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         {framework && (
           <>
-            <BreadcrumbSeparator />
+            <BreadcrumbSeparator className="text-primary-foreground/40" />
             <BreadcrumbItem>
-              <BreadcrumbPage>{framework.name}</BreadcrumbPage>
+              <BreadcrumbPage className="text-primary-foreground/90 font-medium">{framework.name}</BreadcrumbPage>
             </BreadcrumbItem>
           </>
         )}
@@ -37,3 +37,4 @@ export function AppBreadcrumbs() {
     </Breadcrumb>
   );
 }
+

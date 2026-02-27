@@ -26,7 +26,7 @@ export function GriAssessment() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     resolver: zodResolver(griSchema) as any,
     defaultValues: getDefaultValues(),
-    mode: "onSubmit",
+    mode: "onChange",
   });
 
   return (
