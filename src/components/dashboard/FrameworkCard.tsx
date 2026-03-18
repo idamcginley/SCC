@@ -11,6 +11,7 @@ import type { Framework } from "@/data/frameworks";
 // Category accent colors for left border
 const accentColors: Record<string, string> = {
   gri: "border-l-navy-500",
+  sasb: "border-l-gold-400",
   issb: "border-l-gold-500",
   csrd: "border-l-navy-400",
   esrs: "border-l-gold-600",
@@ -23,7 +24,6 @@ interface FrameworkCardProps {
 
 export function FrameworkCard({ framework }: FrameworkCardProps) {
   const Icon = framework.icon;
-  const isActive = framework.slug === "gri";
   const accentClass = accentColors[framework.slug] ?? "border-l-navy-500";
 
   return (
@@ -34,11 +34,8 @@ export function FrameworkCard({ framework }: FrameworkCardProps) {
             <div className="flex h-8 w-8 items-center justify-center rounded bg-primary/8 text-primary">
               <Icon className="h-4 w-4" />
             </div>
-            <span className={`inline-flex items-center rounded-sm px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${isActive
-                ? "bg-gold-100 text-gold-800"
-                : "bg-slate-100 text-slate-500"
-              }`}>
-              {isActive ? "Active" : "Coming Soon"}
+            <span className="inline-flex items-center rounded-sm bg-gold-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-800">
+              Active
             </span>
           </div>
           <CardTitle className="mt-2 text-sm font-semibold">{framework.name}</CardTitle>

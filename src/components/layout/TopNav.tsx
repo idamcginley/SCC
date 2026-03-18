@@ -11,7 +11,7 @@ export function TopNav() {
           </span>
           <span className="hidden h-3.5 w-px bg-gold-400/50 sm:block" />
           <span className="hidden text-xs font-medium tracking-wide text-primary-foreground/70 sm:inline">
-            PwC Case Study: Sustainability Reporting
+            The Future of Sustainability Consulting Workshop
           </span>
         </Link>
         <AppBreadcrumbs />
