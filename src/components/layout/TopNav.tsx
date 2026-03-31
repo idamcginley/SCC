@@ -1,20 +1,19 @@
 import { Link } from "react-router";
-import { AppBreadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export function TopNav() {
   return (
-    <header className="border-b border-navy-800 bg-primary text-primary-foreground">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-baseline gap-2.5">
-          <span className="text-base font-bold tracking-tight">
-            SCC
-          </span>
-          <span className="hidden h-3.5 w-px bg-gold-400/50 sm:block" />
-          <span className="hidden text-xs font-medium tracking-wide text-primary-foreground/70 sm:inline">
+    <header style={{ backgroundColor: "#3aac96" }} className="fixed top-0 left-0 right-0 z-50 border-b border-black/10 text-white">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="/scc-logo.png"
+            alt="SCC Logo"
+            className="h-9 w-9 rounded-full object-cover"
+          />
+          <span className="hidden text-xs font-medium tracking-wide text-white/80 sm:inline">
             The Future of Sustainability Consulting Workshop
           </span>
         </Link>
-        <AppBreadcrumbs />
       </div>
     </header>
   );

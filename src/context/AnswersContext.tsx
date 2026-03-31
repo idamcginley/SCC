@@ -1,33 +1,38 @@
 import { createContext, useContext, useState, useCallback } from "react";
 import type { ReactNode } from "react";
 
-export interface FrameworkAnswers {
-  included: string;
-  excluded: string;
+export interface AssessmentAnswers {
+  mc: Record<string, string>; // questionId → selected letter (A/B/C/D)
+  sa: Record<string, string>; // questionId → free text
 }
 
 interface AnswersContextValue {
-  answers: Record<string, FrameworkAnswers>;
-  setAnswer: (slug: string, field: keyof FrameworkAnswers, value: string) => void;
+  answers: AssessmentAnswers;
+  setMcAnswer: (id: string, letter: string) => void;
+  setSaAnswer: (id: string, text: string) => void;
 }
 
 const AnswersContext = createContext<AnswersContextValue | null>(null);
 
 export function AnswersProvider({ children }: { children: ReactNode }) {
-  const [answers, setAnswers] = useState<Record<string, FrameworkAnswers>>({});
+  const [answers, setAnswers] = useState<AssessmentAnswers>({ mc: {}, sa: {} });
 
-  const setAnswer = useCallback(
-    (slug: string, field: keyof FrameworkAnswers, value: string) => {
-      setAnswers((prev) => {
-        const existing = prev[slug] ?? { included: "", excluded: "" };
-        return { ...prev, [slug]: { ...existing, [field]: value } };
-      });
-    },
-    []
-  );
+  const setMcAnswer = useCallback((id: string, letter: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      mc: { ...prev.mc, [id]: letter },
+    }));
+  }, []);
+
+  const setSaAnswer = useCallback((id: string, text: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      sa: { ...prev.sa, [id]: text },
+    }));
+  }, []);
 
   return (
-    <AnswersContext.Provider value={{ answers, setAnswer }}>
+    <AnswersContext.Provider value={{ answers, setMcAnswer, setSaAnswer }}>
       {children}
     </AnswersContext.Provider>
   );

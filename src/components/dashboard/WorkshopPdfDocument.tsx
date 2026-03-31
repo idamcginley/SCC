@@ -5,8 +5,8 @@ import {
   View,
   StyleSheet,
 } from "@react-pdf/renderer";
-import { frameworks } from "@/data/frameworks";
-import type { FrameworkAnswers } from "@/context/AnswersContext";
+import { mcQuestions, saQuestions } from "@/data/questions";
+import type { AssessmentAnswers } from "@/context/AnswersContext";
 
 const styles = StyleSheet.create({
   page: {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
 
-  // ── Cover / Report Header ─────────────────────────────────────────────────
+  // ── Report Header ─────────────────────────────────────────────────────────
   reportTitle: {
     fontSize: 18,
     fontFamily: "Helvetica-Bold",
@@ -37,19 +37,16 @@ const styles = StyleSheet.create({
     marginBottom: 28,
   },
 
-  // ── Per-Framework Section ─────────────────────────────────────────────────
-  frameworkSection: {
-    marginBottom: 28,
-  },
-  frameworkHeader: {
+  // ── Section Header ────────────────────────────────────────────────────────
+  sectionHeader: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 10,
+    marginBottom: 16,
     paddingBottom: 6,
     borderBottomWidth: 1,
     borderBottomColor: "#d4a843",
   },
-  frameworkBadge: {
+  sectionBadge: {
     fontSize: 8,
     fontFamily: "Helvetica-Bold",
     color: "#ffffff",
@@ -61,27 +58,40 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     letterSpacing: 0.5,
   },
-  frameworkTitle: {
+  sectionBadgeGold: {
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    color: "#0f1d3a",
+    backgroundColor: "#d4a843",
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 2,
+    marginRight: 8,
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
+  sectionTitle: {
     fontSize: 12,
     fontFamily: "Helvetica-Bold",
     color: "#0f1d3a",
   },
 
-  // ── Q&A Pair ──────────────────────────────────────────────────────────────
-  qaPair: {
-    marginBottom: 12,
+  // ── Question Block ────────────────────────────────────────────────────────
+  questionBlock: {
+    marginBottom: 18,
   },
   questionRow: {
     flexDirection: "row",
-    marginBottom: 3,
+    marginBottom: 5,
   },
-  questionLabel: {
+  questionNumber: {
     fontSize: 8,
     fontFamily: "Helvetica-Bold",
     color: "#5a6a85",
     textTransform: "uppercase",
     letterSpacing: 0.5,
     marginRight: 6,
+    minWidth: 20,
   },
   questionText: {
     fontSize: 9,
@@ -89,20 +99,62 @@ const styles = StyleSheet.create({
     color: "#1a2236",
     flex: 1,
   },
-  sublabelText: {
-    fontSize: 8,
-    color: "#7a8ba8",
-    marginBottom: 4,
-    marginLeft: 0,
-    fontStyle: "italic",
+
+  // ── MC Options ────────────────────────────────────────────────────────────
+  optionRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    marginBottom: 3,
+    paddingLeft: 26,
   },
+  optionLetter: {
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    color: "#5a6a85",
+    marginRight: 5,
+    minWidth: 12,
+  },
+  optionLetterSelected: {
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    color: "#0f1d3a",
+    marginRight: 5,
+    minWidth: 12,
+  },
+  optionText: {
+    fontSize: 8,
+    color: "#4a5568",
+    flex: 1,
+    lineHeight: 1.4,
+  },
+  optionTextSelected: {
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    color: "#0f1d3a",
+    flex: 1,
+    lineHeight: 1.4,
+  },
+  selectedIndicator: {
+    fontSize: 7,
+    fontFamily: "Helvetica-Bold",
+    color: "#ffffff",
+    backgroundColor: "#0f1d3a",
+    paddingHorizontal: 4,
+    paddingVertical: 1,
+    borderRadius: 2,
+    marginLeft: 6,
+  },
+
+  // ── Short Answer Box ──────────────────────────────────────────────────────
   answerBox: {
     borderWidth: 1,
     borderColor: "#d0d8e8",
     borderRadius: 3,
     padding: 8,
-    minHeight: 32,
+    minHeight: 48,
     backgroundColor: "#f8fafc",
+    marginLeft: 26,
+    marginTop: 4,
   },
   answerText: {
     fontSize: 9,
@@ -134,7 +186,7 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-  answers: Record<string, FrameworkAnswers>;
+  answers: AssessmentAnswers;
 }
 
 export function WorkshopPdfDocument({ answers }: Props) {
@@ -149,54 +201,64 @@ export function WorkshopPdfDocument({ answers }: Props) {
           The Future of Sustainability Consulting Workshop
         </Text>
         <Text style={styles.reportSubtitle}>
-          Assessment Report — Sustainability Reporting Frameworks
+          Assessment Report — Student Responses
         </Text>
         <View style={styles.dividerHeavy} />
 
-        {/* One section per framework */}
-        {frameworks.map((fw) => {
-          const fwAnswers = answers[fw.slug] ?? { included: "", excluded: "" };
-          const box1 = fw.inputBoxes[0];
-          const box2 = fw.inputBoxes[1];
+        {/* Section 1 — Multiple Choice */}
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionBadge}>Section 1</Text>
+          <Text style={styles.sectionTitle}>Multiple Choice Questions</Text>
+        </View>
 
+        {mcQuestions.map((q) => {
+          const selected = answers.mc[q.id] ?? "";
           return (
-            <View key={fw.slug} style={styles.frameworkSection} wrap={false}>
-              {/* Framework heading row */}
-              <View style={styles.frameworkHeader}>
-                <Text style={styles.frameworkBadge}>{fw.shortName}</Text>
-                <Text style={styles.frameworkTitle}>{fw.sectionHeader}</Text>
+            <View key={q.id} style={styles.questionBlock} wrap={false}>
+              <View style={styles.questionRow}>
+                <Text style={styles.questionNumber}>Q{q.number}</Text>
+                <Text style={styles.questionText}>{q.text}</Text>
               </View>
+              {q.options.map((opt) => {
+                const isSelected = selected === opt.letter;
+                return (
+                  <View key={opt.letter} style={styles.optionRow}>
+                    <Text style={isSelected ? styles.optionLetterSelected : styles.optionLetter}>
+                      {opt.letter}.
+                    </Text>
+                    <Text style={isSelected ? styles.optionTextSelected : styles.optionText}>
+                      {opt.text}
+                    </Text>
+                    {isSelected && (
+                      <Text style={styles.selectedIndicator}>Selected</Text>
+                    )}
+                  </View>
+                );
+              })}
+            </View>
+          );
+        })}
 
-              {/* Q1 — included */}
-              <View style={styles.qaPair}>
-                <View style={styles.questionRow}>
-                  <Text style={styles.questionLabel}>Q1</Text>
-                  <Text style={styles.questionText}>{box1.label}</Text>
-                </View>
-                <Text style={styles.sublabelText}>{box1.sublabel}</Text>
-                <View style={styles.answerBox}>
-                  {fwAnswers.included.trim() ? (
-                    <Text style={styles.answerText}>{fwAnswers.included}</Text>
-                  ) : (
-                    <Text style={styles.emptyAnswerText}>No answer provided.</Text>
-                  )}
-                </View>
+        {/* Section 2 — Short Answer */}
+        <View style={[styles.sectionHeader, { marginTop: 12 }]}>
+          <Text style={styles.sectionBadgeGold}>Section 2</Text>
+          <Text style={styles.sectionTitle}>Short Answer Questions</Text>
+        </View>
+
+        {saQuestions.map((q) => {
+          const text = answers.sa[q.id] ?? "";
+          return (
+            <View key={q.id} style={styles.questionBlock} wrap={false}>
+              <View style={styles.questionRow}>
+                <Text style={styles.questionNumber}>Q{q.number}</Text>
+                <Text style={styles.questionText}>{q.text}</Text>
               </View>
-
-              {/* Q2 — excluded */}
-              <View style={styles.qaPair}>
-                <View style={styles.questionRow}>
-                  <Text style={styles.questionLabel}>Q2</Text>
-                  <Text style={styles.questionText}>{box2.label}</Text>
-                </View>
-                <Text style={styles.sublabelText}>{box2.sublabel}</Text>
-                <View style={styles.answerBox}>
-                  {fwAnswers.excluded.trim() ? (
-                    <Text style={styles.answerText}>{fwAnswers.excluded}</Text>
-                  ) : (
-                    <Text style={styles.emptyAnswerText}>No answer provided.</Text>
-                  )}
-                </View>
+              <View style={styles.answerBox}>
+                {text.trim() ? (
+                  <Text style={styles.answerText}>{text}</Text>
+                ) : (
+                  <Text style={styles.emptyAnswerText}>No answer provided.</Text>
+                )}
               </View>
             </View>
           );
