@@ -1,5 +1,3 @@
-import React from "react";
-
 export function FrameworksOverviewPage() {
   return (
     <div className="mx-auto max-w-4xl space-y-8 px-4 pt-24 pb-12">
