@@ -2,51 +2,48 @@ import { Link, NavLink } from "react-router";
 
 export function TopNav() {
   return (
-    <header style={{ backgroundColor: "#3aac96" }} className="fixed top-0 left-0 right-0 z-50 border-b border-black/10 text-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
+    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col shadow-sm">
+      {/* Top Row: Logo & Title */}
+      <div style={{ backgroundColor: "#115e59" }} className="px-6 py-4 lg:px-8 text-white flex items-center gap-4">
+        <Link to="/" className="flex items-center gap-4">
           <img
             src="/scc-logo.png"
-            alt="SCC Logo"
-            className="h-9 w-9 rounded-full object-cover bg-white"
+            alt="Logo"
+            className="h-12 w-12 object-contain bg-transparent"
           />
-          <span className="hidden text-sm font-medium tracking-wide text-white sm:inline">
-            The Future of Sustainability Consulting Workshop
-          </span>
+          <h1 className="text-2xl font-semibold tracking-wide">
+            Sustainability Reporting Case
+          </h1>
         </Link>
-        <nav className="flex gap-1 bg-white/10 p-1 rounded-lg">
-          <NavLink
-            to="/frameworks"
-            className={({ isActive }) =>
-              `px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
-                isActive ? "bg-white text-[#3aac96]" : "text-white hover:bg-white/20"
-              }`
-            }
-          >
-            Overview
-          </NavLink>
-          <NavLink
-            to="/case"
-            className={({ isActive }) =>
-              `px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
-                isActive ? "bg-white text-[#3aac96]" : "text-white hover:bg-white/20"
-              }`
-            }
-          >
-            Case Challenge
-          </NavLink>
-          <NavLink
-            to="/assessment"
-            className={({ isActive }) =>
-              `px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
-                isActive ? "bg-white text-[#3aac96]" : "text-white hover:bg-white/20"
-              }`
-            }
-          >
-            Assessment
-          </NavLink>
-        </nav>
       </div>
+
+      {/* Bottom Row: Navigation Tabs */}
+      <nav style={{ backgroundColor: "#86a79b" }} className="flex px-6 lg:px-8 py-3 gap-12 text-black font-semibold text-sm sm:text-base">
+        <NavLink
+          to="/frameworks"
+          className={({ isActive }) =>
+            `transition-colors hover:text-black/70 ${isActive ? "text-black" : "text-black/80"}`
+          }
+        >
+          Sustainability Reporting Resources
+        </NavLink>
+        <NavLink
+          to="/case"
+          className={({ isActive }) =>
+            `transition-colors hover:text-black/70 ${isActive ? "text-black" : "text-black/80"}`
+          }
+        >
+          Case
+        </NavLink>
+        <NavLink
+          to="/assessment"
+          className={({ isActive }) =>
+            `transition-colors hover:text-black/70 ${isActive ? "text-black" : "text-black/80"}`
+          }
+        >
+          Case Questions
+        </NavLink>
+      </nav>
     </header>
   );
 }

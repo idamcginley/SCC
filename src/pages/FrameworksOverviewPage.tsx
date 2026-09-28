@@ -1,8 +1,8 @@
 export function FrameworksOverviewPage() {
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 pt-24 pb-12">
+    <div className="mx-auto max-w-4xl space-y-8 px-4 pt-40 pb-12">
       <div className="border-b border-border pb-6">
-        <h1 className="text-2xl font-bold tracking-tight text-primary">Sustainability Consulting Standards and TCFD</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-primary">Sustainability Reporting Resources</h1>
         <p className="text-sm text-muted-foreground mt-2">Prepared by Ida McGinley using resources from Professor Hongping Tan</p>
       </div>
 

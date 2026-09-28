@@ -18,11 +18,11 @@ export function DashboardPage() {
   }, [answers]);
 
   return (
-    <div className="mx-auto max-w-3xl space-y-10 px-4 pt-24 pb-8">
+    <div className="mx-auto max-w-3xl space-y-10 px-4 pt-40 pb-8">
       {/* Page header */}
       <div className="border-b border-border pb-5">
-        <h1 className="text-xl font-bold tracking-tight">
-          Workshop Assessment
+        <h1 className="text-3xl font-bold tracking-tight text-primary">
+          Case Questions
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Complete all questions below. Your answers will be included in the

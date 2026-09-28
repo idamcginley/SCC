@@ -1,8 +1,8 @@
 export function CaseStudyPage() {
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 pt-24 pb-12">
+    <div className="mx-auto max-w-4xl space-y-8 px-4 pt-40 pb-12">
       <div className="border-b border-border pb-6">
-        <h1 className="text-2xl font-bold tracking-tight text-primary">NorthLeaf Foods Inc. | Case Challenge</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-primary">Case</h1>
         <p className="text-sm text-muted-foreground mt-2">Sustainability Frameworks | 2026</p>
       </div>
 
